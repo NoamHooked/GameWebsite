@@ -179,7 +179,6 @@ button {
 #features {
   padding: 20px 50px;
   text-align: center;
-  padding-bottom: 500px;
 }
 
 /* Features and Gallery Grid */
@@ -325,4 +324,68 @@ footer p {
 
 .slideshow-nav button:hover {
   color: #f00;
+}
+
+/* Info About the Game Section */
+
+.game-trailer video {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 100%; /* Make sure the video is responsive */
+  height: auto;
+  border-radius: 10px; /* Optional: rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Optional: add shadow for style */
+}
+
+#game-info {
+  background: url("assets/BGImage.png");
+  background-position: 50% 10%; /* Center horizontally, shift upward */
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#game-info h2 {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #f9c74f; /* A striking yellow for emphasis */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+#game-info p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  color: #bbb;
+}
+
+.game-info-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  padding-bottom: 20px;
+}
+
+/* Add some spacing between game sections */
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  #game-info h2 {
+    font-size: 2em;
+  }
+
+  #game-info p {
+    font-size: 1em;
+  }
+
+  #game-info ul {
+    font-size: 1em;
+  }
 }
