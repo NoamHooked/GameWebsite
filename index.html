@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upcoming Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Hero Wrapper to include both header and hero sections -->
+    <div class="hero-wrapper">
+      <!-- Header Section -->
+      <header>
+        <img src="assets/company_logo.png" alt="Game Logo" class="logo" />
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="trailer.html">Trailer</a></li>
+            <li><a href="empty.html">???</a></li>
+            <li><a href="empty.html">???</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <img src="assets/game_logo.png" alt="Game Logo" class="logo" />
+      </section>
+    </div>
+
+    <div class="features-footer-wrapper">
+      <!-- Features Section -->
+      <section id="features">
+        <div class="features-grid">
+          <div class="feature">
+            <img src="assets/icon1.png" alt="Exploration" class="grid-image" />
+          </div>
+          <div class="feature">
+            <img src="assets/icon2.png" alt="Battle" class="grid-image" />
+          </div>
+          <div class="feature">
+            <img src="assets/icon3.png" alt="Strategy" class="grid-image" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Slideshow Overlay -->
+      <div id="slideshow" class="overlay hidden">
+        <span class="close">&times;</span>
+        <div class="slideshow-content">
+          <img src="" alt="Slideshow Image" id="slideshow-img" />
+          <div class="slideshow-nav">
+            <button id="prev">❮</button>
+            <button id="next">❯</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2024 Upcoming Game!</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
