@@ -9,8 +9,8 @@
 /* Hero Wrapper with Background Image */
 .hero-wrapper {
   background: url("assets/hero_background.png");
-  background-position: 65% 10%; /* Center horizontally, shift upward */
-  background-size: 200%;
+  background-position: center center; /* Center the background */
+  background-size: cover; /* Ensure the background image covers the entire area without stretching */
   color: white;
 }
 
@@ -32,6 +32,12 @@ header .logo {
   backdrop-filter: blur(5px); /* slight blur effect */
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 768px) {
+  header .logo {
+    width: 20vw; /* Slightly larger on smaller screens */
+    height: 5vw;
+  }
 }
 
 /* Navigation styling */
@@ -113,13 +119,19 @@ nav {
 
 /* Hero Heading */
 .hero img {
-  font-size: 4em;
+  font-size: 4em; /* This won't apply to images but might be for text if misapplied */
   font-weight: 700;
   color: #fff;
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Creates depth */
   letter-spacing: 2px;
   margin-bottom: 20px;
-  width: 50%;
+  width: clamp(
+    30%,
+    50%,
+    80%
+  ); /* Dynamically adjusts the width based on window size */
+  max-width: 100%; /* Ensures it doesn't overflow its container */
+  width: auto; /* Maintains aspect ratio */
   animation: fadeIn 1.5s ease-in-out; /* Adds smooth entrance animation */
 }
 
@@ -134,6 +146,9 @@ nav {
   margin-top: 20px;
   transition: all 0.3s ease;
   border-radius: 35px;
+
+  position: absolute; /* Absolute positioning */
+  top: 75%; /* Center horizontally */
 }
 
 .wishlist-button:hover {
@@ -173,6 +188,9 @@ button {
 .features-footer-wrapper {
   background: url("assets/BGImage.png");
   background-position: 50% 10%; /* Center horizontally, shift upward */
+  flex: 1; /* Make this section grow to fill the space between header and footer */
+  display: flex;
+  flex-direction: column; /* Ensure its children stack vertically */
 }
 
 /* Section Styling for Features */
@@ -242,6 +260,7 @@ button {
 /* Footer Styling */
 footer {
   padding: 20px;
+  margin-top: auto;
   text-align: center;
   color: #fff;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
@@ -342,16 +361,29 @@ footer p {
   background-position: 50% 10%; /* Center horizontally, shift upward */
   color: #fff;
   padding: 50px 20px;
+
   text-align: center;
 }
 
-#game-info h2 {
-  font-size: 2.5em;
+#game-info h1 {
+  font-size: 3em;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-top: 100px;
+  margin-bottom: 50px;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #f9c74f; /* A striking yellow for emphasis */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+#game-info h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
 
@@ -366,7 +398,7 @@ footer p {
 .game-info-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 50px 20px;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -388,4 +420,74 @@ footer p {
   #game-info ul {
     font-size: 1em;
   }
+}
+
+body,
+html {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-game {
+  font-family: "Arial", sans-serif;
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: #333;
+  text-align: center;
+}
+
+.about-game h2 {
+  font-size: 2.5rem;
+  color: #ff69b4; /* Bright color for modern look */
+  margin-bottom: 20px;
+}
+
+.about-game p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.about-game h3 {
+  font-size: 2rem;
+  color: #ff1493; /* Slightly darker pink for contrast */
+  margin: 30px 0;
+}
+
+.character {
+  background-color: #480340;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.character:hover {
+  transform: scale(1.05); /* Smooth zoom effect */
+}
+
+.character h4 {
+  font-size: 1.8rem;
+  color: #ff1493;
+  margin-bottom: 10px;
+}
+
+.learn-more a {
+  color: #ff1493;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.learn-more a:hover {
+  text-decoration: underline;
+}
+
+.footer-note {
+  font-size: 1.1rem;
+  color: #777;
+  margin-top: 20px;
+  font-style: italic;
 }
