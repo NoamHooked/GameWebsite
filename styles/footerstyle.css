@@ -6,6 +6,10 @@ footer {
   color: #fff;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
   background-color: rgba(0, 0, 0, 0.7);
+  background: url("../assets/BGImage.png");
+  background-size: 100% 100%; /* Ensure the background covers the entire footer */
+  background-position: center; /* Keep the background centered */
+  background-attachment: fixed; /* Keeps the background fixed in place */
 }
 
 footer p {
@@ -16,7 +20,9 @@ footer p {
 /* Wrapper for Features and Footer */
 .features-footer-wrapper {
   background: url("../assets/BGImage.png");
+  background-size: 100% 100%; /* Ensure the background covers the entire section */
   background-position: 50% 10%; /* Center horizontally, shift upward */
+  background-attachment: fixed; /* Keeps the background fixed in place */
   flex: 1; /* Make this section grow to fill the space between header and footer */
   display: flex;
   flex-direction: column; /* Ensure its children stack vertically */

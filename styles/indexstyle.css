@@ -19,7 +19,7 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0); /* Adds a semi-transparent background */
+  background-color: rgba(255, 6, 6, 0); /* Adds a semi-transparent background */
   backdrop-filter: blur(
     2px
   ); /* Slight blur to make text pop against background */
@@ -27,7 +27,7 @@ header {
 
 /* Logo in Header */
 header .logo {
-  width: 300px;
+  width: 400px;
   background-color: rgba(0, 0, 0, 0.7); /* semi-transparent */
   backdrop-filter: blur(5px); /* slight blur effect */
   border-radius: 10px;
@@ -44,7 +44,7 @@ header .logo {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: 50px;
   padding: 10px;
   margin: 0;
 }
@@ -55,13 +55,29 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 32px;
   color: #fff;
   font-weight: 500;
   padding: 10px 20px;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
+}
+
+nav ul li.selectedButton a {
+  border-radius: 18px;
+  color: #ffffff;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  opacity: 1;
+}
+
+nav ul li.selectedButton a:hover {
+  border-radius: 18px;
+  color: #ffffff;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  opacity: 1;
 }
 
 /* Hover Effect */
@@ -99,6 +115,14 @@ nav {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
+nav ul li.selectedButton a:before {
+  opacity: 0;
+}
+
+nav ul li.selectedButton a:after {
+  opacity: 0;
+}
+
 /* Hero Section - No background here to avoid overlap */
 .hero {
   display: flex;
@@ -117,6 +141,39 @@ nav {
 }
 
 /* Hero Heading */
+
+.hero h1 {
+  font-size: 5em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  color: #fcfcfc;
+  text-transform: uppercase;
+
+  text-shadow: -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000,
+    2px 2px 0px #000, 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero h2 {
+  font-size: 3em;
+  font-weight: 700;
+  margin-bottom: 80px;
+  letter-spacing: 2px;
+  color: #fcfcfc;
+  text-shadow: -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000,
+    2px 2px 0px #000, 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero h3 {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+  color: #fcfcfc;
+  text-shadow: -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000,
+    2px 2px 0px #000, 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
 .hero img {
   font-size: 4em; /* This won't apply to images but might be for text if misapplied */
   font-weight: 700;
@@ -180,32 +237,43 @@ button {
   font-size: 1.2em;
   cursor: pointer;
 }
-
 /* Section Styling for screenshots */
 #screenshots {
-  padding: 20px 50px;
+  padding: 20px 5%;
   text-align: center;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+#screenshots h1 {
+  font-size: 3rem; /* Responsive heading size */
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  color: #f9c74f; /* A striking yellow for emphasis */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
 
 /* Screenshots Grid */
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* Using auto-fit to remove empty spaces */
   gap: 20px;
   justify-items: center;
-  padding: 0 20px;
-
-  /* Add shadow to the background of the grid */
+  padding: 20px;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 15px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4); /* Add background shadow */
-  padding: 20px; /* Add padding inside grid */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
 }
 
 /* Screenshots Images */
 .screenshot {
   width: 100%;
-  max-width: 400px;
+  max-width: 100%; /* Remove max-width to let images be fully responsive */
   position: relative;
   border-radius: 15px;
   overflow: hidden;
@@ -214,10 +282,10 @@ button {
 }
 
 .screenshot img {
-  width: 100%;
-  height: auto;
+  width: 100%; /* Ensure the images stretch to full width */
+  height: auto; /* Keep aspect ratio intact */
   border-radius: 15px;
-  object-fit: cover;
+  object-fit: cover; /* Crop images if necessary while preserving aspect ratio */
 }
 
 /* Hover Effects for Screenshots */
@@ -243,6 +311,41 @@ button {
 
 .screenshot:hover::before {
   opacity: 1;
+}
+
+/* Responsive Typography */
+@media (max-width: 1200px) {
+  #screenshots h1 {
+    font-size: 2.5rem; /* Smaller heading size for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  #screenshots h1 {
+    font-size: 2rem; /* Further reduce heading size for mobile */
+  }
+
+  /* Adjust grid layout for smaller screens */
+  .screenshots-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(250px, 1fr)
+    ); /* Adjust image size for small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  #screenshots h1 {
+    font-size: 1.8rem; /* Even smaller font size for very small screens */
+  }
+
+  /* Grid layout adjustment for very small screens */
+  .screenshots-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(220px, 1fr)
+    ); /* Adjust grid for very small screens */
+  }
 }
 
 /* Slideshow Overlay */
@@ -329,38 +432,89 @@ button {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-#game-info {
-  background: url("../assets/BGImage.png");
-  background-position: 50% 10%; /* Center horizontally, shift upward */
-  color: #fff;
-  padding: 50px 20px;
-
-  text-align: center;
+#game-info p {
+  font-size: 4vw; /* Responsive font size based on viewport width */
+  font-weight: bold;
+  color: #2c3e50; /* Dark gray for the text to maintain readability */
+  font-style: italic; /* Make the text italic for a quote effect */
+  text-align: center; /* Center-align the quotes */
+  margin: 15px 0; /* Add space between the quotes */
+  max-width: 90%; /* Limit the width to improve readability, adjusted for smaller screens */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6; /* Increase line height for better readability */
+  position: relative; /* For styling the background */
+  padding: 5vw 2vw; /* Responsive padding that scales with screen size */
+  background-color: rgba(255, 255, 255, 0.8); /* Light transparent background */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow to add depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
 }
 
 #game-info h2 {
   font-size: 3em;
   font-weight: 700;
+  text-align: center; /* Center-align the quotes */
 
   margin-bottom: 50px;
-  text-transform: uppercase;
   letter-spacing: 2px;
   color: #f9c74f; /* A striking yellow for emphasis */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
 
+/* Style for the quotes */
 #game-info p {
-  font-size: 1.2em;
-  line-height: 1.6;
-  max-width: 900px;
-  margin: 0 auto 30px;
-  color: #bbb;
+  font-size: 1.25rem; /* Slightly larger font size for readability */
+  font-weight: bold;
+  color: #2c3e50; /* Dark gray for the text to maintain readability */
+  font-style: italic; /* Make the text italic for a quote effect */
+  text-align: center; /* Center-align the quotes */
+  margin: 15px 0; /* Add space between the quotes */
+  max-width: 750px; /* Limit the width to improve readability */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6; /* Increase line height for better readability */
+  position: relative; /* For styling the background */
+  padding: 20px; /* Padding around the text */
+  background-color: rgba(255, 255, 255, 0.8); /* Light transparent background */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow to add depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
 }
 
+/* Hover effects on quotes */
+#game-info p:hover {
+  transform: translateY(-5px); /* Lift the quote up on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Optional: Add quotation marks before and after each quote */
+#game-info p::before,
+#game-info p::after {
+  content: '"';
+  font-size: 2rem; /* Increase the size of the quotation marks */
+  color: #6f044f; /* Yellow color for the quotes */
+  font-weight: bold; /* Make the quotation marks stand out */
+
+  top: -10px; /* Position the quotation mark above the text */
+  font-family: "Georgia", serif; /* Elegant font for the quotes */
+}
+
+/* Position the starting quote */
+#game-info p::before {
+  left: 10px; /* Place the starting quote towards the left */
+}
+
+/* Position the closing quote */
+#game-info p::after {
+  right: 10px; /* Place the closing quote towards the right */
+}
+
+/* Game info wrapper */
 .game-info-wrapper {
-  max-width: 1200px;
+  max-width: 95%; /* Make the wrapper take up 95% of the screen width for responsiveness */
   margin: 0 auto;
-  padding: 50px 20px;
+  padding: 2vw 5vw; /* Scaling padding based on viewport size */
   background: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);

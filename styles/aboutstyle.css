@@ -19,7 +19,7 @@ header {
 
 /* Logo in Header */
 header .logo {
-  width: 300px;
+  width: 400px;
   background-color: rgba(0, 0, 0, 0.7); /* semi-transparent */
   backdrop-filter: blur(5px); /* slight blur effect */
   border-radius: 10px;
@@ -30,7 +30,7 @@ header .logo {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: 50px;
   padding: 10px;
   margin: 0;
 }
@@ -41,13 +41,29 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 32px;
   color: #fff;
   font-weight: 500;
   padding: 10px 20px;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
+}
+
+nav ul li.selectedButton a {
+  border-radius: 18px;
+  color: #ffffff;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  opacity: 1;
+}
+
+nav ul li.selectedButton a:hover {
+  border-radius: 18px;
+  color: #ffffff;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  opacity: 1;
 }
 
 /* Hover Effect */
@@ -72,6 +88,7 @@ nav ul li a:hover::before {
   opacity: 1;
 }
 
+/* Active state (for when the link is clicked or active) */
 nav ul li a.active {
   color: #fff;
   font-weight: 600;
@@ -84,6 +101,14 @@ nav {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
+nav ul li.selectedButton a:before {
+  opacity: 0;
+}
+
+nav ul li.selectedButton a:after {
+  opacity: 0;
+}
+
 /* Button Styling */
 button {
   padding: 10px 20px;
@@ -94,9 +119,15 @@ button {
   cursor: pointer;
 }
 
+.game-trailer video {
+  max-width: 100%; /* Make sure the video is responsive */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  margin-bottom: 30px;
+}
+
 #game-info {
-  background: url("assets/BGImage.png");
-  background-position: 50% 10%; /* Center horizontally, shift upward */
   color: #fff;
   padding: 50px 20px;
   text-align: center;
@@ -164,6 +195,16 @@ html {
   flex-direction: column;
 }
 
+body {
+  background: url("../assets/BGImage.png");
+  background-size: 100% 100%; /* Ensure background stretches to fill the entire viewport */
+  background-position: center;
+  background-attachment: fixed; /* Keeps the background in place when scrolling */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .about-game {
   font-family: "Arial", sans-serif;
   padding: 40px 20px;
@@ -191,6 +232,14 @@ html {
   margin: 30px 0;
 }
 
+.about-game .park-img {
+  width: 100%;
+  max-width: 1000px; /* Control max size */
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add subtle shadow for image */
+}
+
+/* Character Container */
 .character {
   display: flex;
   align-items: center;
@@ -204,25 +253,50 @@ html {
   margin-right: 50px;
   padding-left: 50px;
   padding-right: 100px;
+  padding-bottom: 30px;
   transition: transform 0.3s ease-in-out;
+  position: relative; /* Added for positioning the name overlay */
 }
 
 .character:hover {
   transform: scale(1.05); /* Smooth zoom effect */
 }
 
-.character h4 {
-  font-size: 1.8rem;
-  color: #ff1493;
-  margin-bottom: 10px;
-}
-
+/* Character Image Styling */
 .character-img {
   width: 100%;
-  max-width: 300px; /* Control max size */
+  max-width: 300px;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add subtle shadow for image */
-  margin-right: 20px; /* Space between image and text */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+  margin-right: 20px;
+  position: relative; /* Added for positioning the name overlay */
+}
+
+/* Name Overlay Styling */
+.character-name-overlay {
+  position: absolute;
+  bottom: 15px; /* Position the overlay at the bottom of the image */
+  left: 20.8%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.93); /* Semi-transparent black background */
+  color: #fff; /* White text for contrast */
+  padding: 15px 40px;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+}
+
+/* Character Description */
+.character-des {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
 }
 
 .learn-more a {
@@ -275,4 +349,31 @@ html {
   line-height: 1.7;
   color: #ffffff; /* Eye-catching color for the first letter */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle text shadow for readability */
+}
+
+.wishlist-div {
+  padding-top: 50px;
+  padding-bottom: 70px;
+}
+
+/* Wishlist Button Styling */
+.wishlist-button {
+  padding: 30px 50px;
+  border: 2px solid white;
+  color: white;
+  font-size: 3em;
+  text-decoration: none;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+  border-radius: 35px;
+}
+
+.wishlist-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.wishlist-button:focus {
+  outline: none; /* Removes outline */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Adds a glowing effect */
 }
